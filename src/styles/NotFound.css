@@ -1,0 +1,94 @@
+.not-found-container {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.not-found-content {
+  text-align: center;
+}
+
+.not-found-title {
+  font-size: 9rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.decorative-line {
+  height: 0.5rem;
+  background-color: #6366f1;
+  width: 12rem;
+  margin: 1rem auto;
+  border-radius: 9999px;
+}
+
+.not-found-subtitle {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+.not-found-text {
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.back-button,
+.home-button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.back-button {
+  background-color: #6366f1;
+  color: white;
+}
+
+.back-button:hover {
+  background-color: #4f46e5;
+}
+
+.home-button {
+  background-color: #1f2937;
+  color: white;
+}
+
+.home-button:hover {
+  background-color: #111827;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .not-found-title {
+    font-size: 6rem;
+  }
+
+  .not-found-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .back-button,
+  .home-button {
+    width: 100%;
+  }
+}
