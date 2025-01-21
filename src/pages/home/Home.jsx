@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import PageNav from "../components/navigation/PageNav";
+import PageNav from "../../components/navigation/PageNav";
 
 function Home() {
   return (
