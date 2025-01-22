@@ -1,21 +1,13 @@
-import styles from "./City.module.css";
+import { useParams, useSearchParams } from "react-router-dom";
 
-const formatDate = (date) =>
-  new Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    weekday: "long",
-  }).format(new Date(date));
+import styles from "./City.module.css";
+import { currentCity } from "../../data/temp_city";
+import formatDate from "../../utils/formatDate";
 
 function City() {
-  // TEMP DATA
-  const currentCity = {
-    cityName: "Lisbon",
-    emoji: "🇵🇹",
-    date: "2027-10-31T15:59:59.138Z",
-    notes: "My favorite city so far!",
-  };
+  const { id } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { lat, lng } = Object.fromEntries(searchParams);
 
   const { cityName, emoji, date, notes } = currentCity;
 
@@ -27,6 +19,10 @@ function City() {
           <span>{emoji}</span> {cityName}
         </h3>
       </div>
+
+      <h2>
+        Position: Lat: {lat}, Lng: {lng}
+      </h2>
 
       <div className={styles.row}>
         <h6>You went to {cityName} on</h6>
@@ -51,9 +47,7 @@ function City() {
         </a>
       </div>
 
-      <div>
-        <ButtonBack />
-      </div>
+      <div>{/* <ButtonBack /> */}</div>
     </div>
   );
 }
