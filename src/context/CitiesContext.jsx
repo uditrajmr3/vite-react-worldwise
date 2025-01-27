@@ -27,6 +27,10 @@ export function CitiesProvider({ children }) {
   }, []);
 
   const fetchCityDetails = useCallback(async function (id) {
+    // check if id is same as currentCity.id to avoid unnecessary fetch
+    // if (state.currentCity && Number(state.currentCity.id) === Number(id))
+    //   return;
+
     dispatch({ type: "loading" });
     try {
       const response = await fetch(`${BASE_URL}/cities/${id}`);
