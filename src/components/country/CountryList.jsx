@@ -2,9 +2,10 @@ import styles from "./CountryList.module.css";
 import Spinner from "../spinner/Spinner";
 import CountryItem from "./CountryItem";
 import Message from "../common/message/Message";
+import { useCities } from "../../hooks/useCities";
 
-function CountryList({ data }) {
-  const { cities, isLoading, error } = data;
+function CountryList() {
+  const { cities, isLoading, error } = useCities().state;
 
   if (isLoading) return <Spinner />;
 

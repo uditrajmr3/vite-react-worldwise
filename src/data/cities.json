@@ -37,28 +37,28 @@
       "id": 98443197
     },
     {
-      "cityName": "Frankfurt",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
+      "cityName": "Bhavnagar",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2025-01-27T07:29:05.962Z",
+      "notes": "bhavnagar ma swagat che tamaro",
       "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
+        "lat": "21.764601405743978",
+        "lng": "72.14721679687501"
       },
-      "id": 17806731
+      "id": 98443203
     },
     {
-      "cityName": "Munich",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
+      "cityName": "Rajkot",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2025-01-27T07:32:52.014Z",
+      "notes": "Tamara su hoy rajkot??",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
+        "lat": "22.28909641872305",
+        "lng": "70.80139160156251"
       },
-      "id": 98443196
+      "id": 98443204
     }
   ]
 }

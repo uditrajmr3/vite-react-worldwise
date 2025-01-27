@@ -1,14 +1,28 @@
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import styles from "./City.module.css";
-import { currentCity } from "../../data/temp_city";
 import formatDate from "../../utils/formatDate";
+import { useCities } from "../../hooks/useCities";
+import { useEffect } from "react";
+import Spinner from "../spinner/Spinner";
+import BackButton from "../common/backButton/BackButton";
 
 function City() {
   const { id } = useParams();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const { lat, lng } = Object.fromEntries(searchParams);
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const { lat, lng } = Object.fromEntries(searchParams);
 
+  const { currentCity, isLoading } = useCities().state;
+  const { fetchCityDetails } = useCities();
+
+  useEffect(
+    function () {
+      fetchCityDetails(id);
+    },
+    [fetchCityDetails, id]
+  );
+
+  if (isLoading || !currentCity) return <Spinner />;
   const { cityName, emoji, date, notes } = currentCity;
 
   return (
@@ -19,10 +33,6 @@ function City() {
           <span>{emoji}</span> {cityName}
         </h3>
       </div>
-
-      <h2>
-        Position: Lat: {lat}, Lng: {lng}
-      </h2>
 
       <div className={styles.row}>
         <h6>You went to {cityName} on</h6>
@@ -47,7 +57,9 @@ function City() {
         </a>
       </div>
 
-      <div>{/* <ButtonBack /> */}</div>
+      <div>
+        <BackButton />
+      </div>
     </div>
   );
 }
