@@ -3,13 +3,14 @@ import { BASE_URL } from "../data/constants";
 import { reducer } from "../hooks/citiesReducer";
 import { CitiesContext } from "../hooks/useCities";
 
+const initialState = {
+  cities: [],
+  currentCity: null,
+  isLoading: false,
+  error: "",
+};
+
 export function CitiesProvider({ children }) {
-  const initialState = {
-    cities: [],
-    currentCity: null,
-    isLoading: false,
-    error: "",
-  };
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(function () {
