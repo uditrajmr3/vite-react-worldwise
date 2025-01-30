@@ -27,20 +27,23 @@ export function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
-  const fetchCityDetails = useCallback(async function (id) {
-    // check if id is same as currentCity.id to avoid unnecessary fetch
-    // if (state.currentCity && Number(state.currentCity.id) === Number(id))
-    //   return;
+  const fetchCityDetails = useCallback(
+    async function (id) {
+      // check if id is same as currentCity.id to avoid unnecessary fetch
+      if (state.currentCity && Number(state.currentCity.id) === Number(id))
+        return;
 
-    dispatch({ type: "loading" });
-    try {
-      const response = await fetch(`${BASE_URL}/cities/${id}`);
-      const city = await response.json();
-      dispatch({ type: "fetchedCity", payload: city });
-    } catch (error) {
-      dispatch({ type: "error", payload: error.message });
-    }
-  }, []);
+      dispatch({ type: "loading" });
+      try {
+        const response = await fetch(`${BASE_URL}/cities/${id}`);
+        const city = await response.json();
+        dispatch({ type: "fetchedCity", payload: city });
+      } catch (error) {
+        dispatch({ type: "error", payload: error.message });
+      }
+    },
+    [state.currentCity]
+  );
 
   async function createCity(newCity) {
     dispatch({ type: "loading" });
